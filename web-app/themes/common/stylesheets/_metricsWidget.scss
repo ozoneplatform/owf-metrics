@@ -1,0 +1,132 @@
+.metricspanel {
+    @include owf-background-gradient($metrics-widget-background);
+    padding: 5px 5px 5px 5px;
+
+	.x-border-layout-ct {
+		background-color: transparent;
+	}
+	
+	.x-grid .x-panel-header-default {
+		border: $metrics-widget-panel-header-default-border;
+		background-color: $metrics-widget-panel-header-background-color;
+		background-image: -moz-linear-gradient($metrics-widget-panel-header-background-image);
+		background-image: -webkit-linear-gradient($metrics-widget-panel-header-background-image);
+	}
+	
+	.x-toolbar-default {
+		color: $metrics-widget-toolbar-color;
+		
+		.fromDate {
+			width: 200px !important;
+			label {
+				width: 35px !important;
+			}
+		}
+		
+		.toDate {
+			width: 180px !important;
+			label {
+				width: 25px !important;
+			}
+		}
+	}
+	
+	.x-tabpanel-child .x-surface {
+		background-color: $metrics-widget-chart-background-color;
+	    width: 100% !important;
+	}
+	
+	.metrics-graph-tab-panel {
+		.x-tab-bar-top .x-tab-bar-body {
+		    border-width: 0;
+		    padding: 0;
+		}
+	
+		.x-tab-bar {
+		    background-color: transparent;
+		    background-image: none;
+		    border: medium none;
+		    padding: 2px 0 0 2px;
+		
+		    .x-tab {
+		        -moz-box-shadow: none;
+			    background-color: $metrics-widget-tab-background-color;
+				background-image: -moz-linear-gradient($metrics-widget-tab-background-image);
+				background-image: -webkit-linear-gradient($metrics-widget-tab-background-image);
+			    border: $metrics-widget-tab-border;
+			    height: 25px; 
+			    color: $metrics-widget-tab-color;
+		    }
+			    
+			.x-tab-default-top {
+			    border-bottom: 1px solid transparent !important;
+			    
+			    em {
+				    padding-bottom: 0px;
+				}
+				
+				button, .x-tab-inner {
+				    height: 18px;
+				    line-height: 18px;
+		    		color: $metrics-widget-panel-header-text-color;
+				}
+			}
+				    				    
+			.x-tab-active {
+		    	background-color: $metrics-widget-tab-active-background-color;
+				background-image: -moz-linear-gradient($metrics-widget-tab-active-background-image);
+				background-image: -webkit-linear-gradient($metrics-widget-tab-active-background-image);
+		    }			
+		}
+		    
+	    .x-tab-bar-top .x-tab-bar-strip {
+		    height: 0;
+		    border: none;
+    		visibility: hidden;
+		}
+		
+		.graphTitle {
+    		background: none repeat scroll 0 0 transparent;
+    		border: medium none;
+    		/*height: 50px !important;*/
+    	    /*width: 100% !important;*/
+		    padding: 5px;
+		    /*position: absolute;*/
+		    /*top: 0;*/
+		    /*z-index: 9999;*/
+		    
+		    .x-panel-body-default {
+			    background: none repeat scroll 0 0 transparent;
+			    border: none;
+			    color: $metrics-widget-text-color;
+			    font-size: 24px;
+			}
+		}
+	}
+	
+	.x-column-header {
+		font-weight: bold;
+	}
+		
+	.cloud {
+	    padding: 2px; 
+	    line-height: 3em; 
+	    text-align: center;
+	    margin: 0;
+	    
+	    .tag {
+	    	color: $metrics-widget-cloud-tag-color;
+	    }
+	    
+	    .tag-active {
+	    	color: $metrics-widget-cloud-tag-active-color;
+			cursor: pointer;
+	    }
+	}
+	
+	.cloud li { display: inline; }
+		    
+	.x-window-header-text, .x-panel-header-text {
+	    color: $metrics-widget-panel-header-text-color;
+	}
+}

@@ -1,0 +1,116 @@
+<project default="all">
+  <!-- Define an environment variable pointing to JMETER folder or change this -->
+  <property environment="env"/>
+  <condition property="jmeter-home" value="${env.JMETER_DIR}" else="C:\apache-jmeter-2.6">
+        <isset property="env.JMETER_DIR" />
+  </condition>
+
+    <!-- for a variable from the ant command line like ant -DLOOPS_PER_USER=11 -->
+    <condition property="loopsPerUser" value="${LOOPS_PER_USER}" else="10">
+          <isset property="LOOPS_PER_USER" />
+    </condition>
+    <condition property="numUsers" value="${NUM_USERS}" else="90">
+          <isset property="NUM_USERS" />
+    </condition>
+
+  <!-- ant-jmeter.jar comes with jmeter, be sure this is the release you have -->
+  <path id="ant.jmeter.classpath">
+    <pathelement
+       location="${jmeter-home}/extras/ant-jmeter-1.1.1.jar" />
+  </path>
+  <taskdef
+    name="jmeter"
+    classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"
+    classpathref="ant.jmeter.classpath" />
+  <target name="clean">
+     <delete includeemptydirs="true" failonerror="false">
+          <fileset dir="test-reports/jtl" >
+          </fileset>
+         <fileset dir="test-reports/html" >
+         </fileset>
+     </delete>
+    <mkdir dir="test-reports/jtl"/>
+    <mkdir dir="test-reports/html"/>
+  </target>
+    <target name="logParameters">
+      <echo message="jmeter-home: ${jmeter-home}"/>
+      <echo message="numUsers: ${numUsers}"/>
+      <echo message="loopsPerUser: ${loopsPerUser}"/>
+    </target>
+  <target name="test" depends="clean,logParameters">
+    <jmeter jmeterhome="${jmeter-home}" resultlogdir="test-reports/jtl">
+		<property name="hostName" value="perfmetric01.goss.owfgoss.org"/>
+		<property name="hostPort" value="8443"/>
+		<property name="casHost" value="perfmetric01.goss.owfgoss.org"/>
+		<property name="casPort" value="8443"/>
+        <property name="metricHostName" value="perfmetric01.goss.owfgoss.org"/>
+        <property name="metricHostPort" value="8443"/>
+        <property name="numUsers" value="${numUsers}"/>
+        <property name="loopsPerUser" value="${loopsPerUser}"/>
+        <property name="threadTimeToFail" value="10000"/>
+	   <!-- JVM ARGUMENTS -->
+       <jvmarg value="-Duser.dir=${basedir}"/> <!-- HEAP -->
+	   <jvmarg value="-Xms768m"/> <!-- HEAP -->
+	   <jvmarg value="-Xmx4096m"/> <!-- HEAP -->
+	   <jvmarg value="-XX:NewSize=128m"/> <!-- NEW -->
+	   <jvmarg value="-XX:MaxNewSize=1024m"/> <!-- NEW -->
+	   <jvmarg value="-XX:SurvivorRatio=8"/> <!-- SURVIVOR -->
+	   <jvmarg value="-XX:TargetSurvivorRatio=50"/> <!-- SURVIVOR -->
+	   <jvmarg value="-XX:MaxTenuringThreshold=2"/> <!-- TENURING -->
+	   <jvmarg value="-XX:MaxLiveObjectEvacuationRatio=50"/> <!-- EVACUATION -->
+	   <jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/> <!-- RMIGC -->
+	   <jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/> <!-- RMIGC -->
+	   <jvmarg value="-XX:PermSize=64m"/> <!-- PERM -->
+	   <jvmarg value="-XX:MaxPermSize=512m"/> <!-- PERM -->
+	   <!-- jvmarg value="-verbose:gc -XX:+PrintTenuringDistribution"/ --> <!-- DEBUG -->
+	   <jvmarg value="-XX:+HeapDumpOnOutOfMemoryError"/> <!-- DUMP --> <!--Always dump on OOM (does not cost anything unless triggered)-->
+	   <!-- ADD TESTS HERE -->
+       <testplans dir=".">
+           <include name="prep_server.jmx" />
+       </testplans>
+	</jmeter>
+	<jmeter jmeterhome="${jmeter-home}" resultlogdir="test-reports/jtl">
+		<property name="hostName" value="perfmetric01.goss.owfgoss.org"/>
+		<property name="hostPort" value="8443"/>
+		<property name="casHost" value="perfmetric01.goss.owfgoss.org"/>
+		<property name="casPort" value="8443"/>
+        <property name="metricHostName" value="perfmetric01.goss.owfgoss.org"/>
+        <property name="metricHostPort" value="8443"/>
+        <property name="numUsers" value="${numUsers}"/>
+        <property name="loopsPerUser" value="${loopsPerUser}"/>
+        <property name="numUsers" value="${numUsers}"/>
+        <property name="threadTimeToFail" value="10000"/>
+	   <!-- JVM ARGUMENTS -->
+       <jvmarg value="-Duser.dir=${basedir}"/> <!-- HEAP -->
+	   <jvmarg value="-Xms768m"/> <!-- HEAP -->
+	   <jvmarg value="-Xmx4096m"/> <!-- HEAP -->
+	   <jvmarg value="-XX:NewSize=128m"/> <!-- NEW -->
+	   <jvmarg value="-XX:MaxNewSize=1024m"/> <!-- NEW -->
+	   <jvmarg value="-XX:SurvivorRatio=8"/> <!-- SURVIVOR -->
+	   <jvmarg value="-XX:TargetSurvivorRatio=50"/> <!-- SURVIVOR -->
+	   <jvmarg value="-XX:MaxTenuringThreshold=2"/> <!-- TENURING -->
+	   <jvmarg value="-XX:MaxLiveObjectEvacuationRatio=50"/> <!-- EVACUATION -->
+	   <jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/> <!-- RMIGC -->
+	   <jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/> <!-- RMIGC -->
+	   <jvmarg value="-XX:PermSize=64m"/> <!-- PERM -->
+	   <jvmarg value="-XX:MaxPermSize=512m"/> <!-- PERM -->
+	   <!-- jvmarg value="-verbose:gc -XX:+PrintTenuringDistribution"/ --> <!-- DEBUG -->
+	   <jvmarg value="-XX:+HeapDumpOnOutOfMemoryError"/> <!-- DUMP --> <!--Always dump on OOM (does not cost anything unless triggered)-->
+	   <!-- ADD TESTS HERE -->
+       <testplans dir=".">
+           <include name="*.jmx" />
+		   <exclude name="prep_server.jmx" />
+       </testplans>
+	</jmeter>
+  </target>
+  <!-- This is not needed for the plugin, but it produces a nice html report
+       which can be saved using hudson's archive artifact feature -->
+  <target name="report" depends="test">
+    <xslt
+       basedir="test-reports/jtl"
+       destdir="test-reports/html"
+       includes="*.jtl"
+       style="${jmeter-home}/extras/jmeter-results-detail-report_21.xsl"/>
+  </target>
+  <target name="all" depends="test, report"/>
+</project>

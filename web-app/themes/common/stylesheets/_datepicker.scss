@@ -1,0 +1,98 @@
+.x-datepicker-header {
+    background-color: #151515;
+    background-image: -moz-linear-gradient(#474F51, #151515);
+    background-image: -webkit-linear-gradient(#474F51, #151515);
+}
+
+table.x-datepicker-inner th {
+    background-color: #E6E7E8;
+    background-image: -moz-linear-gradient(#F3F4F4, #E6E7E8);
+    background-image: -webkit-linear-gradient(#F3F4F4, #E6E7E8);
+    border-bottom: 1px solid #BABFC3;
+    color: #000000;
+}
+
+.x-datepicker-footer, .x-monthpicker-buttons {
+    background-color: #E6E7E8;
+    background-image: -moz-linear-gradient(#F3F4F4, #E6E7E8);
+    background-image: -webkit-linear-gradient(#F3F4F4, #E6E7E8);
+    border-top: 1px solid #BABFC3;
+}
+
+.x-datepicker-month {
+    padding-top: 3px;
+
+    .x-btn,
+    button,
+    .x-btn-tc,
+    .x-btn-tl,
+    .x-btn-tr,
+    .x-btn-mc,
+    .x-btn-ml,
+    .x-btn-mr,
+    .x-btn-bc,
+    .x-btn-bl,
+    .x-btn-br {
+    	filter: 0% !important;
+        background: transparent !important;
+        border-width: 0 !important;
+    }
+    
+    span {
+        color: #fff !important;
+    }
+    
+    .x-btn-split-right, .x-btn-over .x-btn-split-right {
+        background: no-repeat right center !important;
+        background-image: none;
+        padding-right: 0px !important;
+    }
+}
+        
+
+table.x-datepicker-inner {
+	.x-datepicker-selected a {
+	    background: none repeat-x scroll left top #B4D681;
+	    border: 1px solid #7FB647;
+	}
+	
+	a:hover, .x-datepicker-disabled a:hover {
+	  	background-color: #B4D681;
+	}	
+	
+	.x-datepicker-prevday a, .x-datepicker-nextday a {
+	    color: #626262;
+	}
+}
+
+.x-monthpicker-months {
+    border-right: 1px solid #424242;
+}
+
+.x-monthpicker-item {
+	a {
+		color: #000000;
+	}
+	
+	a:hover {
+	  	background-color: #B4D681;
+	}
+
+	a.x-monthpicker-selected {
+	    background-color: #B4D681;
+	    border: 1px solid #7FB647;
+	}
+}
+
+.x-monthpicker-yearnav-prev {
+    background-image: theme-background-image($theme-name, 'shared/left-btn.gif') !important;
+}
+
+.x-monthpicker-yearnav-next {
+    background-image: theme-background-image($theme-name, 'shared/right-btn.gif') !important;
+}
+
+.x-monthpicker-yearnav-prev-over, .x-monthpicker-yearnav-next-over {
+    cursor: pointer;
+}
+

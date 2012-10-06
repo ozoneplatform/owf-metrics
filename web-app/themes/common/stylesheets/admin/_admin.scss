@@ -1,0 +1,71 @@
+.inactive-text .x-grid3-cell-inner {
+    color: #AAAAAA;
+}
+
+.owf-form-valid-field {
+	background-image: theme-image($theme-name, 'blue/icons/yes.png');
+	overflow: hidden;
+	position: absolute;
+	text-index: -9999px;
+	width: 16px;
+	height: 16px;
+}
+
+.required-label{
+    text-align: right;
+}
+.required-indicator {
+    color:  $warning-color;
+}
+
+.dialogHeader, .dialogHeader .x-tip-body {
+    text-align:center;
+    font-weight:bold;
+    color: $warning-color;
+}
+
+.x-form-warning-icon {
+    width: 16px;
+    height: 18px;
+    overflow: hidden;
+    position: absolute;
+    background: transparent no-repeat 0 2px;
+    background-image: theme-image($theme-name, 'shared/warning.png');
+}
+
+.x-form-warning-tip .x-tip-tc {
+    background: repeat-x 0 -12px;
+    padding-top:6px;
+}
+
+.x-form-warning-tip .x-tip-bc {
+    background: repeat-x 0 -18px;
+    height:6px;
+}
+
+.x-form-warning-tip .x-tip-bl {
+    background: no-repeat 0 -6px;
+}
+
+.x-form-warning-tip .x-tip-br {
+    background: no-repeat right -6px;
+}
+
+.x-form-warning-tip .x-tip-body {
+    padding:2px;
+}
+
+.x-form-warning-tip .x-tip-body {
+    padding-left:24px;
+    background:transparent no-repeat 2px 2px;
+}
+
+.x-form-warning-tip .x-tip-tc, .x-form-warning-tip .x-tip-tl, .x-form-warning-tip .x-tip-tr, .x-form-warning-tip .x-tip-bc,
+.x-form-warning-tip .x-tip-bl, .x-form-warning-tip .x-tip-br, .x-form-warning-tip .x-tip-ml, .x-form-warning-tip .x-tip-mr
+{
+    background-image: theme-image($theme-name, 'shared/warning-tip-corners.gif');
+}
+
+.x-form-warning-tip .x-tip-body {
+    background-image: theme-image($theme-name, 'shared/warning.png');
+}

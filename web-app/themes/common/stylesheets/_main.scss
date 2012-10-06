@@ -1,0 +1,276 @@
+@charset "UTF-8";
+/*
+This CSS is for specific style for the OWF UI.  This does not include the Admin UI.  This CSS is also for
+specifically overriding any default ExtJS css rules for OWF specific elements.
+*/
+
+.clear {
+    clear: both;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.owf-manage-window {
+    @include owf-manage-window();
+}
+
+.x-css-shadow {
+    //change border radius to match our custom windows
+    @include owf-border-radius;
+}
+
+.owf-view {
+    background: $panel-body-background-color;
+}
+
+.x-splitter {
+    @include owf-background-gradient($toolbar-theme);
+}
+
+.x-toolbar {
+    padding: 5px;
+    padding-top: 6px;
+    .x-toolbar-text {
+        line-height: 1.2;
+    }
+}
+
+.x-toolbar-default {
+    @include owf-background-gradient($toolbar-theme);
+}
+
+.x-btn-icon {
+    background-position: center center;
+}
+
+// dropdown
+.x-boundlist {
+    //ext does not provide customizable variables for text color
+    //for various states, so overriding it here
+    .x-boundlist-item {
+        color: $owf-boundlist-item-color;
+        &.x-boundlist-item-over {
+            color: $owf-boundlist-item-over-color;
+        }
+        &.x-boundlist-selected {
+            color: $owf-boundlist-item-selected-color;
+        }
+    }
+}
+
+/*****
+ * MESSAGE BOX
+ */
+.x-message-box {
+    @extend .owf-window;
+
+    .x-window-body {
+        background-color: $message-box-body-color;
+        color: $message-box-text-color;
+    }
+    /*.x-btn {*/
+        /*.x-btn-inner {*/
+            /*background-image:theme-image($theme-name, 'blue/icons/Check-16.png');*/
+        /*}*/
+    /*}*/
+}
+
+/**
+ * Ghost proxy for portal layout
+ */
+.x-panel-ghost {
+    @include owf-panel($ghost-widget-theme);
+} 
+
+.x-window {
+    @include owf-window;
+}
+
+.x-focus .x-window-header {
+    border-right: $owf-focus-style !important;
+    border-top: $owf-focus-style !important;
+    border-left: $owf-focus-style !important;
+}
+
+.x-window-inactive {
+    @include owf-window($inactive-widget-theme);
+}
+
+.x-window-ghost{
+    @include owf-window($ghost-widget-theme);
+    overflow: hidden; //fix to add borders around ghost header
+}
+
+.x-window-header, .x-panel-header {
+    .x-editor {
+        input {
+            line-height: normal;
+        }
+    }
+}
+.x-window-header-text, .x-panel-header-text {
+    cursor: pointer !important;
+}
+
+#northBanner, #southBanner {
+    .x-panel-body {
+        border: none !important;
+    }
+}
+
+.x-menu.box-overflow-menu {
+    width: 27px !important;
+    .x-menu-body {
+        background: none repeat scroll 0 0 transparent!important;
+        border: none;
+        left: -2px !important;
+        top: 2px !important;
+        .x-vertical-box-overflow-body {
+            width: 27px !important;
+        }
+    }
+}
+
+.x-panel-header.widgetheader,
+.x-window-header.widgetheader {
+    .x-box-menu-right {
+        .x-btn-menu-active {
+            @include owf-button-background($pressed_button_theme);
+        }
+    }
+    .x-box-menu-right {
+        padding: 0px;
+        overflow: visible;
+    }
+    .x-btn {
+        .x-widgetheader-more-icon {
+            background: theme-image($theme-name, 'blue/button/Wrench-16.png') no-repeat scroll 0 0 transparent;
+            position: absolute;
+            //left: -1px;
+            //top: -1px;
+        }
+    }
+}
+.x-panel-header.widgetheader {
+    .x-btn {
+        padding: 0 !important;
+        height: 18px !important;
+        button {
+            height: 16px;
+        }
+        .x-btn-inner {
+            height: 16px;
+            line-height: 16px;
+            //padding-left: 20px;
+        }
+    }
+    .x-btn-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+    
+//OWF-4265: Flex Widgets are refreshed when switching dashboards
+.dashboard, .tab-dashboard-panel .x-tabpanel-child {
+  position: absolute;
+}
+
+.x-focus, .x-nbr .x-focus {
+    border: $owf-focus-style !important;
+    outline: 0 none;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    border-width: 0px;
+    outline: 0 none;
+}
+
+.focus-catch {
+    position: absolute;
+    width: 1px !important; //ext will try to resize to full width in IE
+    height: 1px;
+    font-size: 1px; //height cannot be less than font-size in IE
+    border-style: none;
+    background: transparent;
+}
+
+@include owf-tool;
+
+// EXT overrides 
+
+.x-form-text,
+textarea.x-form-field {
+  background-image: none;
+  }
+
+.x-form-invalid-field,
+textarea.x-form-invalid-field {
+  background-image: none;
+}
+
+// ext override for overriding toolbar GIFs to PNGs
+
+
+.x-tbar-page-first {
+  background-image: theme-image($theme-name, 'grid/page-first.png') !important;
+}
+
+.x-tbar-loading {
+  background-image: theme-image($theme-name, 'grid/refresh.png') !important;
+}
+
+.x-tbar-page-last {
+  background-image: theme-image($theme-name, 'grid/page-last.png') !important;
+}
+
+.x-tbar-page-next {
+  background-image: theme-image($theme-name, 'grid/page-next.png') !important;
+}
+
+.x-tbar-page-prev {
+  background-image: theme-image($theme-name, 'grid/page-prev.png') !important;
+}
+
+.x-item-disabled .x-tbar-loading {
+  background-image: theme-image($theme-name, 'grid/refresh-disabled.png') !important;
+}
+
+.x-item-disabled .x-tbar-page-first {
+  background-image: theme-image($theme-name, 'grid/page-first-disabled.png') !important;
+}
+ 
+.x-item-disabled .x-tbar-page-last {
+  background-image: theme-image($theme-name, 'grid/page-last-disabled.png') !important;
+}
+
+.x-item-disabled .x-tbar-page-next {
+  background-image: theme-image($theme-name, 'grid/page-next-disabled.png') !important;
+}
+
+.x-item-disabled .x-tbar-page-prev {
+  background-image: theme-image($theme-name, 'grid/page-prev-disabled.png') !important;
+}
+
+
+
+//These changes are to change GIF to PNG but impact all from common images folder
+
+.x-form-invalid-under {
+  background-image: url('../../common/images/form/exclamation.png');
+}
+
+.x-form-invalid-icon {
+  background-image: url('../../common/images/form/exclamation.png');
+}
+

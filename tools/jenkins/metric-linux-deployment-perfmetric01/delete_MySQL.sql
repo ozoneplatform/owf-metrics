@@ -1,0 +1,12 @@
+alter table owf_group_people drop foreign key FK2811370C1F5E0B3;
+alter table owf_group_people drop foreign key FK28113703B197B21;
+alter table role_people drop foreign key FK28B75E78C1F5E0B3;
+alter table role_people drop foreign key FK28B75E7870B353;
+drop table if exists metric;
+drop table if exists owf_group;
+drop table if exists owf_group_people;
+drop table if exists person;
+drop table if exists role;
+drop table if exists role_people;
+drop table if exists DATABASECHANGELOG;
+drop table if exists DATABASECHANGELOGLOCK;

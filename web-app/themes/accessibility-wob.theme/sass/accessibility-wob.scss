@@ -1,0 +1,476 @@
+@charset "UTF-8";
+
+// OWF UTILITY FUNCTIONS
+@import 'functions/owf_functions';
+@import 'compass'; //pull in base functions and mixins provided by the compass framework
+
+$theme-name: 'accessibility-wob';
+
+$body-background-gradient-start: #151515;
+$body-background-gradient-end: #024255;
+$stripe-img-path: theme-image($theme-name, 'stripes_rpt.png');
+$watermark-img-path: theme-image($theme-name, 'bkg_owf.png');
+$owf-loadmask-background: #000;
+
+/*****************************************************************
+ * Put yor theme customizations here.  If you hava many customizations,
+ * you may want to put them in a separate file which you import here. 
+ * The import statements in this file reference stylesheets from ext-js
+ * and from the themes/common folder. You can look at 
+ * themes/common/stylesheets/variables/-defaults in order to see what variables
+ * may be changed. 
+ */
+
+
+/* These styles will be applied to the body of both OWF itself and the
+ * admin widgets
+ */
+body {
+    background-color: $body-background-gradient-start;
+    outline: 0 none;
+    cursor: default; // for IE8
+}
+
+$warning-color: #ffa647;
+$orange: #ed9200;
+$test: #ff00cc;
+
+
+//In order from darkest to lightest
+$owfblue6: #1C3035;
+$owfblue5: #004258;
+$owfblue4: #336C7C;
+$owfblue3: #70B0BA;
+$owfblue2: #B5E1E5;
+$owfblue1: #B5E1E5;
+
+//In order from darkest to lightest
+$owfgreen6: #3A4547;
+$owfgreen5: #607745;
+$owfgreen4: #6E992B;
+$owfgreen3: #8DC63F;
+$owfgreen2: #B9E573;
+$owfgreen1: #DDF991;
+
+
+//In order from darkest to lightest
+$owfgrey6: #151515;
+$owfgrey5: #2a2a2a;
+$owfgrey4: #323232;
+$owfgrey3: #3a3a3a;
+$owfgrey2: #424242;
+$owfgrey1: #565656;
+$owfgrey0: #efefef;
+
+/*
+ * These styles will only be applied to the OWf container, not the admin widgets
+ */
+#owf-body {
+    height: 100%;
+    outline: 0 none;
+    cursor: default; // for IE8
+
+    background-image: $stripe-img-path, $watermark-img-path, 
+        -webkit-radial-gradient($body-background-gradient-end, $body-background-gradient-start);
+    background-image: $stripe-img-path, $watermark-img-path, 
+        -moz-radial-gradient($body-background-gradient-end, $body-background-gradient-start);
+
+    background-position: center center;
+    background-repeat: repeat, no-repeat, no-repeat;
+}
+
+/*
+ * linear background gradient for IE
+ */
+#owf-body.x-ie {
+    background-color: $body-background-gradient-end;
+    
+    background: $watermark-img-path no-repeat center center;
+
+    #mainPanel {
+        background: $stripe-img-path repeat center center;
+    }
+}
+
+$admin-widget-detail-title-color: $owfgreen2;
+
+
+// ===============================
+// =============== Theme Variables 
+// ===============================
+
+
+$owf-font-size: 12px;
+$owf-loadmask-background: #ccc;
+
+$owf-window-background-color: $owfgrey5;
+
+$owf-base-color: $owfblue4;
+$owf-contrast-base: #ffffff; 
+$owf-alt-base-color: #7b007c;  //PINK
+$owf-focus-color: $owfgreen2;
+
+$owf-toolbar-base-color: #424242;
+
+$owf-tool-width: 17px;
+
+$active-widget-theme: (
+    ($owfgrey6),    //base color
+    (#474f51, #151515),   //gradient start/end colors
+    ($owf-contrast-base), //text color
+    ($owf-base-color), //outer border color
+    ($owf-base-color)  //body border color
+);
+
+$inactive-widget-theme: (
+    #556063,    //base color
+    (#3e4547, #556063),   //gradient start/end colors
+    ($owf-contrast-base), //text color
+    ($owf-base-color), //outer border color
+    ($owf-base-color)  //body border color
+);
+
+$default_button_theme: (
+    ($owfgrey2 0%, $owfgrey1 45%, $owfgrey5 50%),
+    #ffffff,
+    $owfgrey3
+);
+
+$over_button_theme: (
+    ($owfgrey1 0%, $owfgrey5 45%),
+    #ffffff,
+    $owf-focus-color
+);
+
+$pressed_button_theme: (
+    ($owfgrey5 0%, $owfgrey1 45%),
+    #ffffff,
+    #5C6971
+);
+
+$disabled_button_theme: (
+    ($owfgrey6),
+    #ffffff,
+    $owfgrey5
+);
+
+$owf-tip-base-color: $owfblue6;
+
+$selectable-item-selected-background-color: #bbb;
+$selectable-item-selected-border-color: #fff;
+
+// -- panel -----------------------------------------------------------
+$owf-panel-body-border-color: #222222;
+
+// -- grid -----------------------------------------------------------
+$owf-grid-header-color: $owfgreen1;
+$owf-grid-header-background-color: #484748;
+$owf-grid-header-background-gradient: 'matte' !default;
+$owf-grid-header-over-background-gradient: nth($default_button_theme, $BUTTON_GRADIENT_INDEX) !default;
+$owf-grid-header-over-background-color: getBaseFromGradient($owf-grid-header-over-background-gradient) !default;
+$owf-grid-header-over-border-color: $owfgrey3;
+
+
+//grid rows
+$owf-grid-color: #ffffff;
+$owf-grid-row-wrap-border-color: #bbb !default;
+$owf-grid-body-border-color: $owfgrey4;
+
+$owf-grid-row-cell-color: #fff;
+$owf-grid-row-wrap-border-color: #101010;
+
+$owf-grid-row-cell-background: $owfgrey6;
+
+$owf-grid-row-cell-alt-background: $owfgrey3;
+$owf-grid-row-cell-over-background-color: #3E514D;
+$owf-grid-row-cell-selected-background-color: $owfblue5;
+$owf-grid-row-cell-focus-background-color: $owfgreen1;
+$owf-grid-row-cell-focus-color: #000;
+
+// -- dropdown---------------------------------------------------------
+$owf-boundlist-background-color: $owf-grid-row-cell-background;
+$owf-boundlist-item-over-background-color: $owf-grid-row-cell-over-background-color;
+$owf-boundlist-item-selected-background-color: $owf-grid-row-cell-selected-background-color;
+
+$owf-boundlist-item-color: $owf-contrast-base; //contrast to make the text readable
+$owf-boundlist-item-over-color: $owf-contrast-base; //contrast to make the text readable
+
+$owf-top-border-radius: 0px;
+$owf-bottom-border-radius: 10px;
+
+// -- forms---------------------------------------------------------
+$owf-form-field-color: $owfblue1;
+$owf-form-field-border-color: $owfgrey4;
+$owf-form-field-background-color: $owfgrey6;
+$owf-form-field-invalid-background-color: $owfgrey6 !default;
+$owf-form-field-invalid-border-color: $warning-color !default;
+
+// -- toolbar---------------------------------------------------------
+$toolbar-separator-color: #a0a9ad;
+
+//OWF-EXT VARIABLES
+@import 'variables/constants';
+@import 'variables/defaults';
+@import 'variables/ext_overrides';
+
+// METRICS
+$metrics-widget-background: (#4F4F4F, #424242);
+$metrics-widget-panel-header-default-border: 1px solid #2F2F2F;
+$metrics-widget-toolbar-color: #FFFFFF;
+$metrics-widget-tab-background-color: #556063;
+$metrics-widget-tab-background-image: #3E4547, #556063;
+$metrics-widget-tab-border: 1px solid #336C7C;
+$metrics-widget-tab-active-background-color: #151515;
+$metrics-widget-tab-active-background-image: #474F51, #151515;
+$metrics-widget-cloud-tag-color: #FFFFFF;
+$metrics-widget-cloud-tag-active-color: #5A6D7F;
+$metrics-widget-text-color: #FFFFFF;
+
+//EXT STYLESHEETS
+@import 'ext';
+
+//OWF-EXT MIXINS
+@import 'mixins/owf_mixins';
+
+/*
+ * These imports create the owf-specific stylesheets, based on the values of the 
+ * variables that are defined in variables/defaults (which can be overridden in this
+ * file).If extensive changes are required, you can delete some of these imports and
+ * reimplement them as necessary
+ */
+//OWF-EXT STYLESHEETS
+@import 'owf_all';
+
+// ===============================
+// ======================== Button 
+// ===============================
+
+// box shadows
+.owfButton {
+    @include box-shadow(inset 0px 1px 1px #fe06fb, inset 0px -1px 1px #A0A3A7); 
+
+    &.x-btn-over {
+        @include box-shadow(inset 0px 1px 1px #868C91, inset 0px -1px 1px #DDDEE0); 
+    }
+    &.x-btn-pressed {
+        @include box-shadow(inset 0px 1px 1px #858B90, inset 0px -1px 1px #F6F7F7); 
+    }
+    &.x-btn-disabled {
+        @include box-shadow(inset 0px 1px 1px #ADB6BC, inset 0px -1px 1px #F9F9F9); 
+    }
+}
+
+
+// ===============================
+// =================== Widget Tool
+// ===============================
+$close-button-width: 19px;
+
+.x-tool .x-tool-close {
+    background-image: theme-image($theme-name, 'tools/close.png') !important;
+    width: 19px;
+}
+
+.x-tool-over .x-tool-close {
+    background-position: -$close-button-width*1 0;
+}
+
+.x-tool-pressed .x-tool-close {
+    background-position: -$close-button-width*2 0;
+}
+
+// overrides for inactive images
+.x-window-inactive, .x-tab-top-inactive {
+    .#{$prefix}tool {
+        height: $owf-tool-height;
+
+        img {
+            background-image: theme-background-image($theme-name, 'tools/inactive-tool-sprites.gif');
+        }
+    }
+    .x-tool .x-tool-close {
+        background-position: -$close-button-width*3 0;
+    }
+
+    .x-tool-over .x-tool-close {
+        background-position: -$close-button-width*1 0;
+    }
+}
+
+// Melissa's Overrides
+
+// override for text shadow
+
+.x-column-header {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+//override dashboard modal bg color
+// Nish to come back to fix
+.x-mask {
+  background: $owfblue5;
+}
+
+//override that editor tab area
+
+.x-btn-default-toolbar-xlarge-menu-active,
+.x-btn-default-toolbar-xlarge-pressed {
+  border-color: $owfgrey3;
+  background-image: none;
+  background-color: $owfgrey3;
+}
+
+.x-toolbar-default {
+  background-color: $owfgrey6;
+}
+
+.x-form-focus,
+textarea.x-form-focus {
+  border-color: $owf-focus-color;
+}
+
+.x-btn-split-right,
+.x-btn-over .x-btn-split-right {
+  background: transparent no-repeat right center;
+  background-image: theme-background-image($theme-name, 'button/s-arrow.gif');
+  padding-right: 14px !important;
+}
+
+.x-btn-split-bottom,
+.x-btn-over .x-btn-split-bottom {
+  background: transparent no-repeat center bottom;
+  background-image: theme-background-image($theme-name, 'button/s-arrow-b.gif'); 
+  padding-bottom: 14px;
+}
+
+.x-toolbar .x-btn-split-right {
+  background-image: theme-background-image($theme-name, 'button/s-arrow-noline.gif');
+  padding-right: 12px !important;
+}
+
+.x-toolbar .x-btn-split-bottom {
+  background-image: theme-background-image($theme-name, 'button/s-arrow-b-noline.gif'); 
+}
+
+
+.x-datepicker {
+    background-color: #151515;
+    border: 1px solid #336C7C;
+}
+
+.x-datepicker-header {
+    background-color: #151515;
+    background-image: -moz-linear-gradient(#474F51, #151515);
+    background-image: -webkit-linear-gradient(#474F51, #151515);
+}
+
+table.x-datepicker-inner th {
+    background-color: #151515;
+    background-image: -moz-linear-gradient(#4F4F4F, #424242);
+    background-image: -webkit-linear-gradient(#4F4F4F, #424242);
+    border-bottom: 1px solid #222222;
+    color: #FFFFFF;
+}
+
+.x-datepicker-footer, .x-monthpicker-buttons {
+    background-color: #151515;
+    background-image: -moz-linear-gradient(#4F4F4F, #424242);
+    background-image: -webkit-linear-gradient(#4F4F4F, #424242);
+    border-top: 1px solid #222222;
+}
+
+table.x-datepicker-inner {
+	a {
+    	color: white;
+	}
+	
+	td {
+	    border: 1px solid #151515;
+	}
+	
+	.x-datepicker-selected a {
+	    background: none repeat-x scroll left top #004155;
+	    border: 1px solid #3B5B6B;
+	}
+	
+	a:hover, .x-datepicker-disabled a:hover {
+	  	background-color: #B4D681;
+	}	
+	
+	.x-datepicker-disabled a {
+	    background-color: #424242;
+	}
+	
+	.x-datepicker-prevday a, .x-datepicker-nextday a {
+	    color: #626262;
+	}
+}
+
+.x-datepicker-month {
+    padding-top: 3px;
+
+    .x-btn,
+    button,
+    .x-btn-tc,
+    .x-btn-tl,
+    .x-btn-tr,
+    .x-btn-mc,
+    .x-btn-ml,
+    .x-btn-mr,
+    .x-btn-bc,
+    .x-btn-bl,
+    .x-btn-br {
+        background: transparent !important;
+        border-width: 0 !important;
+    }
+    
+    span {
+        color: #fff !important;
+    }
+    
+    .x-btn-split-right {
+        background: no-repeat right center !important;
+        background-image: none;
+        
+        padding-right: 12px;
+    }
+}
+        
+.x-monthpicker {
+    background-color: #151515;
+    border: 1px solid #336C7C;
+}
+
+.x-monthpicker-months {
+    border-right: 1px solid #424242;
+}
+
+.x-monthpicker-item {
+	a {
+	    border: 1px solid #151515;
+	    color: white;
+	}
+
+	a.x-monthpicker-selected {
+	    background-color: #004155;
+	    border: 1px solid #3B5B6B;
+	}
+	
+	a:hover {
+	  	background-color: #B4D681;
+	  	color: #000000;
+	}
+}
+
+.x-monthpicker-yearnav-prev {
+    background-image: theme-background-image($theme-name, 'shared/left-btn.gif') !important;
+}
+
+.x-monthpicker-yearnav-next {
+    background-image: theme-background-image($theme-name, 'shared/right-btn.gif') !important;
+}
+
+.x-monthpicker-yearnav-prev-over, .x-monthpicker-yearnav-next-over {
+    cursor: pointer;
+}
