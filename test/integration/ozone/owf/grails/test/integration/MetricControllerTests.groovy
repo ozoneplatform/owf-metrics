@@ -108,7 +108,10 @@ class MetricControllerTests extends OWFGroovyTestCase {
 		controller.graphData()
 
 		assertNotNull JSON.parse(controller.response.contentAsString)
-		assertEquals 2, JSON.parse(controller.response.contentAsString)[0][2]
+        if (day == 1)
+            assertEquals 2, JSON.parse(controller.response.contentAsString)[1][2]
+        else
+            assertEquals 2, JSON.parse(controller.response.contentAsString)[0][2]
 	}
 	
 	void testGetTagCloud() {
@@ -128,7 +131,6 @@ class MetricControllerTests extends OWFGroovyTestCase {
             toDate: dateObj.getTime().toString()
 		])
 		controller.getTagCloud()
-
 		assertNotNull JSON.parse(controller.response.contentAsString).results
 		assertEquals "b3b1d04f-97c2-4726-9575-82bb1cf1af6a", JSON.parse(controller.response.contentAsString).results[0].componentId
 		assertEquals 2, JSON.parse(controller.response.contentAsString).results[0].total
