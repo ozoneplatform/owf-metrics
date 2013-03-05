@@ -1,0 +1,29 @@
+<ivysettings>
+    <typedef name="svn" classname="fm.last.ivy.plugins.svnresolver.SvnResolver" />
+    <properties file="ivy.properties" />
+    <settings defaultResolver="chain" />
+    <property name="ivy.local.default.root" value="${ivy.default.ivy.user.dir}/local"
+       override="false" />
+    <property name="ivy.local.default.ivy.pattern"
+       value="[organisation]/[module]/[revision]/[type]s/[artifact]-[revision].[ext]"
+       override="false" />
+    <property name="ivy.local.default.artifact.pattern"
+       value="[organisation]/[module]/[revision]/[type]s/[artifact]-[revision].[ext]"
+       override="false" />
+    <latest-strategies>
+        <latest-time name="newest-strategy" />
+    </latest-strategies>
+    <resolvers>
+        <chain name="chain" checkmodified="true" >
+           <filesystem name="local"  alwaysCheckExactRevision="true" >
+                <ivy pattern="${ivy.local.default.root}/[organisation]/[module]/ivy-[revision].xml" />
+                <artifact
+                    pattern="${ivy.local.default.root}/[organisation]/[module]/[type]s/[artifact]-[revision].[ext]" />
+            </filesystem>
+            <filesystem name="offline" checkmodified="true">
+                <ivy pattern="${offline_repo}/[organisation]/[module]/ivys/ivy-[revision].xml" />
+                <artifact pattern="${offline_repo}/[organisation]/[module]/[type]s/[artifact]-[revision].[ext]" />
+            </filesystem>
+        </chain>
+    </resolvers>
+</ivysettings>
