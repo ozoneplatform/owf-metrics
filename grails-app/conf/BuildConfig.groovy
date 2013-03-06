@@ -126,6 +126,7 @@ grails.project.dependency.resolution = {
 //      mavenLocal()
 //      mavenCentral()
 
+    mavenRepo "https://www.owfgoss.org/nexus/content/groups/public"
  	resolver createLocalResolver()
         def offline = System.getProperty('OFFLINE_REPO')
       if (offline) {
@@ -134,7 +135,7 @@ grails.project.dependency.resolution = {
         }
       else{
           //println "OWF USING LOCAL REPO"
-            resolver createIvySvnResolver()
+            //resolver createIvySvnResolver()
         }
     }
     dependencies {
