@@ -305,7 +305,7 @@
         	<zipfileset dir="${staging.dir}" excludes="**/*.sh"/>
         	<zipfileset dir="${staging.dir}" includes="**/*.sh" filemode="744" />
         </zip>
-        <copy file="${staging.dir}/${app.name}-bundle.zip" tofile="${staging.dir}/${app.base.prefix}-bundle-${app.base.majorVersion}-${app.base.sprint}.zip" />
+        <copy file="${staging.dir}/${app.name}-bundle.zip" tofile="${staging.dir}/${app.base.prefix}-bundle-${app.base.majorVersion}.zip" />
 
     </target>
 
