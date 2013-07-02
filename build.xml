@@ -220,6 +220,7 @@
          ================================= -->
     <target name="compile" depends="-init" description="--> Compiles a Grails application">
         <grails script="Compile" args="${offline.arg}"/>
+        <move file="${basedir}/target/${app.name}-${app.version}.war" tofile="${basedir}/target/metric.war" />
     </target>
 
     <!-- =================================
@@ -228,6 +229,7 @@
 
     <target name="war" depends="test,jsdoc,about,compile-themes" description="--> Creates a WAR of a Grails application">
         <grails script="war" args="${offline.arg}"/>
+        <move file="${basedir}/target/${app.name}-${app.version}.war" tofile="${basedir}/target/metric.war" />
     </target>
 
     <!-- =================================
