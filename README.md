@@ -7,7 +7,7 @@ Ozone Metrics is a web service used to collect and aggregate data from a variety
 ## Copyrights
 > Software (c) 2012 [Next Century Corporation](http://www.nextcentury.com/ "Next Century")
 
-> Portions (c) 2009 [TexelTek Inc.](http://www.texeltek.com/"TexelTek")
+> Portions (c) 2009 [TexelTek Inc.](http://www.texeltek.com/ "TexelTek")
 
 > The United States Government has unlimited rights in this software, pursuant to the contracts under which it was developed.  
  
