@@ -11,9 +11,9 @@ Ozone Metrics is a web service used to collect and aggregate data from a variety
 
 > The United States Government has unlimited rights in this software, pursuant to the contracts under which it was developed.  
  
-Ozone Metrics is released to the public as Open Source Software, because it's the Right Thing To Do. Also, it was required by [Section 924 of the 2012 National Defense Authorization Act.](http://www.gpo.gov/fdsys/pkg/PLAW-112publ81/pdf/PLAW-112publ81.pdf "NDAA FY12")
+Ozone Metrics is released to the public as Open Source Software, because it's the Right Thing To Do. Also, it was required by [Section 924 of the 2012 National Defense Authorization Act](http://www.gpo.gov/fdsys/pkg/PLAW-112publ81/pdf/PLAW-112publ81.pdf "NDAA FY12").
 
-Released under the [Apache License, Version 2.](http://www.apache.org/licenses/LICENSE-2.0.html "Apache Licence v2")
+Released under the [Apache License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.html "Apache License v2").
  
 ## Community
 
@@ -39,4 +39,4 @@ Government agencies are encouraged to submit contributions as pull requests on G
  
 ### Roadmap
  
-At the Dec 2012 OWF GOSS board, the board agreed to a 6-month re-factoring effort against OWF which would re-implement using OSGi on the back end and eliminate the dependency on ExtJS for the front-end. As part of this work, Ozone Metrics will become a module in this new architecture. This work will be done on GitHub and will be completely transparent to the community.
+There is work underway to re-factor OWF to use OSGi on the back end, and eliminate the dependency on Ext JS for the front-end.  As part of this work, Ozone Metrics will become a module in this new architecture.  Multiple alphas have been released, and announced on [ozoneplatform-announce](https://groups.google.com/forum/?fromgroups#!forum/ozoneplatform-announce).  Although we initially intended a release for June 2013, we're revisiting our design to make sure it is fully scalable and enterprise-ready, both for OWF itself and for other capabilities built on top of the services of what we're calling _ozoneplatform_.  Watch [ozoneplatform-announce](https://groups.google.com/forum/?fromgroups#!forum/ozoneplatform-announce) for further information as to specific timelines and availability of alphas.
