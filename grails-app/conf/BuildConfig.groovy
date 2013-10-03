@@ -159,6 +159,7 @@ grails.project.dependency.resolution = {
 		'org.springframework.security:spring-security-core:3.0.2.RELEASE',
 		'org.springframework.security:spring-security-cas-client:3.0.2.RELEASE',
 		'org.springframework.security:spring-security-config:3.0.2.RELEASE',
+        'net.sf.ehcache:ehcache-jgroupsreplication:1.4',
 
         //ldap dependencies
         'org.springframework.security:spring-security-ldap:3.0.2.RELEASE'
