@@ -7,6 +7,9 @@ databaseChangeLog = {
     //previous version change logs go here
     include file: 'changelog_5.0.0.groovy'
     include file: 'changelog_6.0.0.groovy'
+    include file: 'changelog_7.0.0.groovy'
+    include file: 'changelog_7.1.0.groovy'
+    include file: 'changelog_7.2.groovy'
 
     //include/exclude current version's change log based on existence of dbmBuildPreviousVersion
     if (!System.properties.dbmBuildPreviousVersion) {
