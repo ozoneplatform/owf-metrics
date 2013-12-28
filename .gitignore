@@ -1,2 +1,48 @@
-.idea/
-*.iml
+# .gitignore for ozone-metrics
+
+# logs
+*.log
+/test/reports
+/logs
+
+# older plugin install locations
+/web-app/WEB-INF/classes
+
+# "temporary" files
+/staging
+#/src
+target
+/build.number
+/cobertura.ser
+/lib
+/work
+js-min
+/bin
+/target-eclipse
+/web-app/WEB-INF/grails-app
+*.sass-cache
+*.css
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# IDE support files
+/.classpath
+/.launch
+/.project
+/.settings
+/*.launch
+/*.tmproj
+/ivy*
+/eclipse
+/.idea
+/*.iml
+/*.iws
+/*.ipr
