@@ -319,7 +319,8 @@
         <copy file="${staging.dir}/owf-security-project-${owf.security.rev}.zip" tofile="${staging.dir}/owf-security/owf-security-project.zip" />
         <unzip src="${staging.dir}/owf-security-extras-${owf.security.rev}.zip" dest="${staging.dir}" />
         <antcall target='stage-extras' />
-        <copy file="${basedir}/license.txt"  tofile="${staging.dir}/license.txt"/>
+        <copy file="${basedir}/license.txt" tofile="${staging.dir}/license.txt" />
+        <copy file="${basedir}/COPYRIGHT.txt" tofile="${staging.dir}/COPYRIGHT.txt" />
     </target>
 
     <target name="post-bundle-cleanup" >
